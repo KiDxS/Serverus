@@ -15,15 +15,7 @@ Things that are needed:
     b. DB_PASSWORD - your password in your MySQL instance
 
     c. DB_DATABASE=serverus
-5. Run “php artisan migrate --seed”.
-6. Generate an app key ”php artisan key:generate”
-7. Run “php artisan serve” to serve the web application.
-
-
-### Manual importation of the database structure if you skipped the migration step
-1. Login into phpmyadmin
-2. Select the destination database on the left pane. 
-3. Click on the Import tab in the top center pane. 
-4. Under the File to import section, click Browse and locate the serverus.sql.
-5. From the Format dropdown menu choose 'SQL'.
-6. Click the Go button at the bottom to import the database.
+5. Turn on your mysql instance.
+6. Run “php artisan migrate --seed”.
+7. Generate an app key ”php artisan key:generate”
+8. Run “php artisan serve” to serve the web application.
