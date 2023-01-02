@@ -46,11 +46,12 @@ class DatabaseSeeder extends Seeder
     }
     private function customerReceiptSeed()
     {
+        \App\Models\CustomerReceipt::factory()->create();
+
         // Retrieves the sale price of the product and the quantity to calculate its total
-        $totals = DB::select('SELECT (product.sale_price * customer_cart.quantity) AS total FROM customer_cart, product WHERE product.product_id = 1');
-        \App\Models\CustomerReceipt::factory()->create([
-            'total' => $totals[0]->total
-        ]);
+        $result = DB::select('SELECT (product.sale_price * customer_cart.quantity) AS total FROM customer_receipt, customer_cart, product where customer_receipt.cart_id = customer_cart.cart_id AND customer_cart.product_id = product.product_id;');
+        // Updates the value of the total of the receipt
+        DB::update('UPDATE `customer_receipt` SET `total` = ? WHERE `receipt_id` = 1; ', [$result[0]->total]);
     }
     private function customerCartSeed()
     {
