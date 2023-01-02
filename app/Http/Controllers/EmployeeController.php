@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class EmployeeController extends Controller
 {
     // authentication method is a function that handles the session generation
     public function login(Request $request)

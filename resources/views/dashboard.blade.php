@@ -63,7 +63,7 @@
                 <tbody>
                     @foreach ($products as $product)
                     <tr>
-                        <td class="border rounded-0 border-light">{{ $product->id }}</td>
+                        <td class="border rounded-0 border-light">{{ $product->product_id }}</td>
                         <td class="border rounded-0 border-light">{{ $product->product_name }}</td>
                         <td class="border rounded-0 border-white">{{ $product->quantity }}</td>
                         <td class="border rounded-0 border-light">{{ $product->cost_price }}</td>
@@ -76,7 +76,7 @@
                                     width: 190.344px;
                                 ">
                             <a class="btn btn-info text-center link-dark border-light editbtn" role="button" style="margin-right: 20px">Edit</a>
-                            <button class="btn btn-secondary text-center link-dark border-light delete" type="button" data-bs-target="#modal-1" data-bs-toggle="modal" data-id={{ $product->id }}>
+                            <button class="btn btn-secondary text-center link-dark border-light delete" type="button" data-bs-target="#modal-1" data-bs-toggle="modal" data-id={{ $product->product_id }}>
                                 Delete
                             </button>
                         </td>
@@ -115,7 +115,7 @@
                         <form method="post" action="{{ route('edit.product') }}">
                             @csrf
                             @method('PUT')
-                            <input id="id_update_field" name="id" hidden>
+                            <input id="id_update_field" name="product_id" hidden>
                             <label class="form-label" style="padding: 20px;padding-top: 3px;">Product Name:         
                                 <input class="bg-secondary border rounded shadow form-control form-control-sm text-dark" type="text" name="product_name" style="padding-top: 3px;" id="product_name_update_field" />
                             </label>
@@ -149,7 +149,7 @@
                     <form action="{{ route('delete.product') }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <input id="id" name="id" hidden>
+                        <input id="id" name="product_id" hidden>
                         <div class="modal-body text-bg-dark">
                             <p class="fs-6 text-center text-bg-dark">
                                 <em>Do you want to delete this product?</em>

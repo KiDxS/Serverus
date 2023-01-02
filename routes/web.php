@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/', [UserController::class, 'login'])->name('auth');
+Route::post('/', [EmployeeController::class, 'login'])->name('auth');
 
 Route::get('/', function () {
     return view('login');
@@ -36,7 +36,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/products/delete', [ProductController::class, 'delete_product'])->name('delete.product');
 
     // Logout
-    Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+    Route::get('/logout', [EmployeeController::class, 'logout'])->name('logout');
 });
 
 
