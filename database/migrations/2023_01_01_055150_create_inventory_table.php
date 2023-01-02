@@ -28,7 +28,11 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('employee');
+        Schema::dropIfExists('customer_cart');
+        Schema::dropIfExists('product');
         Schema::dropIfExists('inventory');
+        Schema::dropIfExists('customer_record');
+        Schema::dropIfExists('customer');
         Schema::dropIfExists('store');
         
     }
