@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 // Protected routes
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard',[ProductController::class, 'all_products'])->name('dashboard');
+    Route::get('/product',[ProductController::class, 'all_products'])->name('product.page');
 
     // Products
     Route::get('/products/add', function() {
@@ -33,7 +33,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/products/add', [ProductController::class, 'add_product'])->name('add.product');
     Route::get('/products/{id}', [ProductController::class, 'retrieve_product'])->name('edit.product.page');
     Route::put('/products', [ProductController::class, 'update_product'])->name('edit.product');
-    Route::delete('/products/delete', [ProductController::class, 'delete_product'])->name('delete.product');
+    // Route::delete('/products/delete', [ProductController::class, 'delete_product'])->name('delete.product');
 
     // Logout
     Route::get('/logout', [EmployeeController::class, 'logout'])->name('logout');

@@ -1,6 +1,7 @@
 $(document).on("click", ".delete", function () {
     let id = $(this).attr("data-id");
     $("#id").val(id);
+    console.log($("#id").val(id));
 });
 
 $(document).ready(function () {

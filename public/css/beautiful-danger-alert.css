@@ -12,3 +12,7 @@
   color: #e73d4a;
 }
 
+.form-contol::placeholder {
+  color: white;
+}
+

@@ -17,7 +17,7 @@ class EmployeeController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('dashboard')->with('message', 'Welcome back!');
+            return redirect()->intended('/product')->with('message', 'Welcome back!');
         }
         return back()->withErrors([
             'username' => 'The provided credentials do not match our records.',
