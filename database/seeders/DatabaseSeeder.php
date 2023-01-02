@@ -49,8 +49,11 @@ class DatabaseSeeder extends Seeder
         \App\Models\CustomerReceipt::factory()->create();
 
         // Retrieves the sale price of the product and the quantity to calculate its total
-        $result = DB::select('SELECT (product.sale_price * customer_cart.quantity) AS total FROM customer_receipt, customer_cart, product where customer_receipt.cart_id = customer_cart.cart_id AND customer_cart.product_id = product.product_id;');
-        
+        $result = DB::select('SELECT (product.sale_price * customer_cart.quantity) FROM customer_receipt, customer_cart, product
+        where (customer_receipt.cart_id = customer_cart.cart_id AND customer_receipt.cart_id = 1) 
+        AND 
+        (customer_cart.product_id = product.product_id AND customer_cart.product_id = 1);');
+
         // Updates the value of the total of the receipt
         DB::update('UPDATE `customer_receipt` SET `total` = ? WHERE `receipt_id` = 1; ', [$result[0]->total]);
     }
