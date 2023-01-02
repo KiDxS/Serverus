@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Employee::factory()->create([
             'username' => 'admin'
         ]);
+        \App\Models\Employee::factory(2)->create();
         \App\Models\Product::factory(4)->create();
         \App\Models\Customer::factory(4)->create();
         $this->customerRecordSeed();
