@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Customer;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,11 +17,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'username' => 'admin',
-        // ]);
+        \App\Models\User::factory()->create([
+            'username' => 'admin',
+        ]);
 
 
 
@@ -34,15 +35,29 @@ class DatabaseSeeder extends Seeder
         \App\Models\Customer::factory(4)->create();
         $this->customerRecordSeed();
         $this->customerCartSeed();
-        \App\Models\CustomerReceipt::factory()->create();
+        $this->customerReceiptSeed();
     }
 
+    private function firstProduct()
+    {
+        $products = \App\Models\Product::all();
+        $product = $products[0];
+        return $product;
+    }
+    private function customerReceiptSeed()
+    {
+        // Retrieves the sale price of the product and the quantity to calculate its total
+        $totals = DB::select('SELECT (product.sale_price * customer_cart.quantity) AS total FROM customer_cart, product WHERE product.product_id = 1');
+        \App\Models\CustomerReceipt::factory()->create([
+            'total' => $totals[0]->total
+        ]);
+    }
     private function customerCartSeed()
     {
         $customers = \App\Models\Customer::all();
-        $products = \App\Models\Product::all();
+
         $customer = $customers[0];
-        $product = $products[0];
+        $product = $this->firstProduct();
         $customer_name = $customer->customer_name;
         $product_id = $product->product_id;
         \App\Models\CustomerCart::factory()->create([
@@ -50,6 +65,7 @@ class DatabaseSeeder extends Seeder
             'customer_name' => $customer_name
         ]);
     }
+
 
     private function customerRecordSeed()
     {
