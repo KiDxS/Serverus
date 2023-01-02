@@ -16,7 +16,7 @@
 <body class="flex-fill justify-content-center" style="background-color: var(--bs-gray-dark)">
     <nav class="navbar navbar-light navbar-expand-md border rounded border-1">
         <div class="container-fluid">
-            <a class="navbar-brand fs-4 fw-semibold link-light" href="#" style="padding-left: 30px; text-shadow: 7px 3px 5px #000000"><strong>Serverus</strong></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
+            <a class="navbar-brand fs-4 fw-semibold link-light" style="padding-left: 30px; text-shadow: 7px 3px 5px #000000"><strong>Serverus</strong></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
                 <span class="visually-hidden">Toggle navigation</span>
             </button>
             <div class="collapse navbar-collapse" id="navcol-1">
