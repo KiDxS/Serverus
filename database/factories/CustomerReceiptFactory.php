@@ -18,7 +18,8 @@ class CustomerReceiptFactory extends Factory
     {
         return [
             'cart_id' => 1,
-            'created_at' => "2023-01-02"
+            'created_at' => '2023-01-02',
+            'total' => 0
         ];
     }
 }
