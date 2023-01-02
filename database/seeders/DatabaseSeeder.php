@@ -17,14 +17,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
-
-        \App\Models\User::factory()->create([
-            'username' => 'admin',
-        ]);
-
-
-
         \App\Models\Store::factory()->create();
         \App\Models\Inventory::factory()->create();
         \App\Models\Employee::factory()->create([
@@ -49,7 +41,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\CustomerReceipt::factory()->create();
 
         // Retrieves the sale price of the product and the quantity to calculate its total
-        $result = DB::select('SELECT (product.sale_price * customer_cart.quantity) FROM customer_receipt, customer_cart, product
+        $result = DB::select('SELECT (product.sale_price * customer_cart.quantity) AS total FROM customer_receipt, customer_cart, product
         where (customer_receipt.cart_id = customer_cart.cart_id AND customer_receipt.cart_id = 1) 
         AND 
         (customer_cart.product_id = product.product_id AND customer_cart.product_id = 1);');
