@@ -120,6 +120,7 @@
                     </div>
                     <div class="modal-body fw-normal text-start text-bg-dark" style="background: #000000">
                         <form action="{{ route('add.product') }}" method="post" style="background: #343a40">
+                            @csrf
                             <label class="form-label" style="
                                         padding: 20px;
                                         padding-top: 3px;
@@ -127,7 +128,7 @@
                                         font-style: italic;
                                         color: #babfb7;
                                     ">Product Name:
-                                <input class="border rounded border-1 shadow form-control form-control-sm" type="text" name="pquantity" inputmode="numeric" style="
+                                <input class="border rounded border-1 shadow form-control form-control-sm" type="text" name="product_name" inputmode="numeric" style="
                                             padding-top: 3px;
                                             background: #343a40;
                                             color: #ffffff;
@@ -137,7 +138,7 @@
                                         background: #343a40;
                                         font-style: italic;
                                         color: #babfb7;
-                                    ">Product Quantity: <input class="border rounded border-1 shadow form-control form-control-sm" type="number" name="pquantity" style="
+                                    ">Product Quantity: <input class="border rounded border-1 shadow form-control form-control-sm" type="number" name="quantity" style="
                                             padding-top: 3px;
                                             background: #343a40;
                                             color: #ffffff;
@@ -149,7 +150,7 @@
                                         font-style: italic;
                                         color: #babfb7;
                                     ">Cost Price:
-                                <input class="border rounded shadow form-control form-control-sm" type="number" name="cprice" inputmode="numeric" style="
+                                <input class="border rounded shadow form-control form-control-sm" type="number" name="cost_price" inputmode="numeric" style="
                                             padding-top: 3px;
                                             background: #343a40;
                                             color: #ffffff;
@@ -160,17 +161,18 @@
                                         font-style: italic;
                                         color: #babfb7;
                                     ">Sale Price:
-                                <input class="border rounded shadow form-control form-control-sm" type="number" name="sprice" inputmode="numeric" style="
+                                <input class="border rounded shadow form-control form-control-sm" type="number" name="sale_price" inputmode="numeric" style="
                                             background: #343a40;
                                             color: #ffffff;
                                         " /></label>
+                            <div class="modal-footer text-bg-dark" style="background: #343a40">
+                                <a class="btn btn-secondary fw-semibold link-dark text-bg-light border rounded border-2 border-light" role="button" data-bs-dismiss="modal" href="product.html">No</a><button class="btn btn-info fw-semibold link-light text-bg-dark border rounded border-2 border-white" type="submit">
+                                    Save
+                                </button>
+                            </div>
                         </form>
                     </div>
-                    <div class="modal-footer text-bg-dark" style="background: #343a40">
-                        <a class="btn btn-secondary fw-semibold link-dark text-bg-light border rounded border-2 border-light" role="button" data-bs-dismiss="modal" href="product.html">No</a><button class="btn btn-info fw-semibold link-light text-bg-dark border rounded border-2 border-white" type="submit">
-                            Save
-                        </button>
-                    </div>
+
                 </div>
             </div>
         </div>
