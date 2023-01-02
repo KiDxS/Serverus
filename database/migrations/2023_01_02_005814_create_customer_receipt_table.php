@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('customer_receipt', function (Blueprint $table) {
             $table->integer('receipt_id', true);
             $table->integer('cart_id');
-            $table->double('total', 8, 2);
+            $table->double('total', 8, 2)->nullable();
             $table->date('created_at');
             $table->foreign('cart_id')->references('cart_id')->on('customer_cart');
         });
