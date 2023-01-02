@@ -11,7 +11,7 @@ class ProductController extends Controller
     public function all_products()
     {
         $data = Product::all();
-        return view('dashboard', ['products' => $data]);
+        return view('product.page', ['products' => $data]);
     }
 
     public function add_product(Request $request)
@@ -27,7 +27,7 @@ class ProductController extends Controller
         $product->add($fields['product_name'], $fields['quantity'], $fields['cost_price'], $fields['sale_price']);
 
         // Redirects user to the previous page
-        return redirect('dashboard')->with('message', 'Successfuly added a product!');
+        return redirect('/product')->with('message', 'Successfuly added a product!');
     }
 
     //
@@ -44,15 +44,15 @@ class ProductController extends Controller
         $product = new Product();
         $product->edit($product_id, $fields['product_name'], $fields['quantity'], $fields['cost_price'], $fields['sale_price']);
         // Redirects user to the previous page
-        return redirect('dashboard')->with('message', 'Successfuly edited a product!');
+        return redirect('/product')->with('message', 'Successfuly edited a product!');
     }
 
-    public function delete_product(Request $request)
-    {
-        $product_id = $request->product_id;
+    // public function delete_product(Request $request)
+    // {
+    //     $product_id = $request->product_id;
 
-        $product = new Product();
-        $product->delete_product($product_id);
-        return back()->with('message', 'Successfuly deleted a product!');
-    }
+    //     $product = new Product();
+    //     $product->delete_product($product_id);
+    //     return back()->with('message', 'Successfuly deleted a product!');
+    // }
 }
