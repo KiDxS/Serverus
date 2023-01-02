@@ -19,9 +19,10 @@ class ProductFactory extends Factory
         return [
             //
             'product_name' => $this->faker->product_name,
-            'cost_price' => fake()->randomFloat(2,100, 50000),
-            'sale_price' => fake()->randomFloat(2,100, 50000),
-            'quantity' => fake()->randomNumber(4),
+            'cost_price' => fake()->randomFloat(2, 100, 500),
+            'sale_price' => fake()->randomFloat(2, 600, 1000),
+            'quantity' => fake()->randomNumber(2),
+            'inventory_name' => "F.I Auto Shop Inventory"
 
         ];
     }
