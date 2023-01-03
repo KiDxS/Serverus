@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CustomerReceiptController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProductController;
+use App\Models\CustomerReceipt;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,9 +37,11 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::prefix('receipt')->group(function () {
-        Route::get('/');
+        Route::get('/', function() {
+            return view('receipt.add');
+        });
         Route::get('/{id}')->name('edit.receipt.page');
-        Route::post('/')->name('add.receipt');
+        Route::post('/', [CustomerReceiptController::class, 'create_customer_receipt'])->name('add.receipt');
         Route::put('/{id}')->name('edit.receipt');
         Route::delete('/')->name('delete.receipt');
     });
