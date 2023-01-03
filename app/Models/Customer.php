@@ -14,16 +14,26 @@ class Customer extends Model
     public $incrementing = false;
 
     // Declares what table is the model
-    public $table = 'customer'; 
-    
+    public $table = 'customer';
+
     // creates a customer record to the database
-    public function create_customer($customer_name, $address, $phone_number) {
+    public function create_customer($customer_name, $address, $phone_number)
+    {
         $result = DB::insert('INSERT INTO `customer`(`customer_name`,`address`,`phone_number`) VALUES(?, ?, ?);', [$customer_name, $address, $phone_number]);
         return $result;
     }
     // retrieves a customer record from the database using the customer_name primary key
-    public function retrieve_customer($customer_name) {
+    public function retrieve_customer($customer_name)
+    {
         $result = DB::select('SELECT * from `customer` WHERE `customer_name` = ?;', [$customer_name]);
         return $result[0];
+    }
+
+    // updates the information of a customer by taking the current customer_name as a condition
+    public function update_customer($customer_name, $address, $phone_number, $new_customer_name)
+    {
+        $result = DB::update('UPDATE `customer` SET `customer_name` = ?, `address` = ?, `phone_number` = ? WHERE `customer_name` = ?;
+        ', [$new_customer_name, $address, $phone_number, $customer_name]);
+        return $result;
     }
 }
