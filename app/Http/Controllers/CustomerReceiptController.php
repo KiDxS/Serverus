@@ -32,14 +32,16 @@ class CustomerReceiptController extends Controller
 
         return redirect('/receipt')->with('message', 'Successfuly created a receipt!');
     }
-    public function edit_customer_receipt(Request $request) {
+    public function edit_customer_information_in_receipt(Request $request) {
         $fields = $request->validate([
+            'new_customer_name' => ['required'],
             'customer_name' => ['required'],
             'address' => ['required'],
             'phone_number' => ['required'],
         ]);
         $customer = new Customer;
-        $customer_cart = new CustomerCart;
-
+        
+        // updates the information of a customer by taking the current customer_name as a condition
+        $customer->update_customer($fields['customer_name'], $fields['address'], $fields['phone_number'], $fields['new_customer_name']);
     }
 }
