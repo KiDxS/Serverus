@@ -14,25 +14,10 @@
 </head>
 
 <body class="flex-fill justify-content-center" style="background-color: var(--bs-gray-dark)">
-    <nav class="navbar navbar-light navbar-expand-md border rounded border-1">
-        <div class="container-fluid">
-            <a class="navbar-brand fs-4 fw-semibold link-light" style="padding-left: 30px; text-shadow: 7px 3px 5px #000000"><strong>Serverus</strong></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
-                <span class="visually-hidden">Toggle navigation</span>
-            </button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav"></ul>
-            </div>
-            <a class="btn fs-6 fw-bold link-light border rounded border-2" role="button" style="margin-right: 0px; padding-right: 11px" href="{{ route('logout') }}">Log Out</a>
-        </div>
-    </nav>
+    @include('components.navbar')
     <div class="container" style="margin-top: 15px;">
-        @if(session()->has('message'))
-        <div class="alert alert-dark text-start text-success border rounded-0 border-2 border-success" role="alert">
-            <span>
-                <strong>{{ session('message') }}</strong>
-            </span>
-        </div>
-        @endif
+        @include('components.alert')
+        @include('components.error')
         <div class="d-flex justify-content-end">
             <i class="fas fa-plus text-white" style="font-size: 33px" data-bs-target="#modal-2" data-bs-toggle="modal"></i>
         </div>
