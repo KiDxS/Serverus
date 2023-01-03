@@ -12,5 +12,5 @@ class CustomerRecord extends Model
     public $incrementing = false;
 
     // Declares what table is the model
-    public $table = 'customer_record'; 
+    public $table = 'customer_record';
 }
