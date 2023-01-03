@@ -20,4 +20,10 @@ class CustomerReceipt extends Model
         VALUES(?, (SELECT (product.sale_price * customer_cart.quantity) FROM serverus.customer_cart, serverus.product WHERE (customer_cart.cart_id = ?) AND (customer_cart.product_id = product.product_id AND customer_cart.product_id = ?)), ?);', [$cart_id, $cart_id, $product_id, $current_date]);
         return $result;
     }
+
+    // deletes the receipt, the cart, and the customer.
+    public function delete_customer_receipt($receipt_id) {
+        $result = DB::delete('DELETE `customer_receipt`, `customer_cart`, `customer` FROM `customer_receipt` INNER JOIN customer_cart INNER JOIN customer WHERE (customer_receipt.receipt_id = ?) AND (customer_receipt.cart_id = customer_cart.cart_id) AND (customer_cart.customer_name = customer.customer_name);', [$receipt_id]);
+        return $result;
+    }
 }
