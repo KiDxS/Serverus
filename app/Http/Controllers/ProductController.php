@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 
 {
-    public function all_products()
+    public function render_data()
     {
         $data = Product::all();
         return view('product.page', ['products' => $data]);

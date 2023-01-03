@@ -29,16 +29,7 @@
     <body style="background-color: var(--bs-gray-dark)">
         <section class="position-relative py-4 py-xl-5">
             <div class="container">
-                @if ($errors->any())
-                <div
-                    class="alert alert-dark text-start text-secondary border rounded-0 border-2 border-secondary beautiful"
-                    role="alert"
-                >
-                    @foreach ($errors->all() as $error)
-                    <strong>Warning!</strong> Invalid Username or Password.
-                    @endforeach
-                </div>
-                @endif
+                @include('components.error')
                 <div class="row mb-5">
                     <div class="col-md-8 col-xl-6 text-center mx-auto">
                         <h1
