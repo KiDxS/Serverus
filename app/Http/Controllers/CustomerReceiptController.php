@@ -5,10 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Models\CustomerCart;
 use App\Models\CustomerReceipt;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CustomerReceiptController extends Controller
 {
+    public function render_data() {
+        $customer_receipt = new CustomerReceipt;
+        $products = Product::all(['product_id', 'product_name']);
+        $receipts = $customer_receipt->retrieve_all_customer_receipts();
+        return view('receipt.page', ['receipts' => $receipts, 'products' => $products]);
+    }
     public function create_customer_receipt(Request $request)
     {
         $fields = $request->validate([
