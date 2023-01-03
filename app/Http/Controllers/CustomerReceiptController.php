@@ -32,4 +32,14 @@ class CustomerReceiptController extends Controller
 
         return redirect('/receipt')->with('message', 'Successfuly created a receipt!');
     }
+    public function edit_customer_receipt(Request $request) {
+        $fields = $request->validate([
+            'customer_name' => ['required'],
+            'address' => ['required'],
+            'phone_number' => ['required'],
+        ]);
+        $customer = new Customer;
+        $customer_cart = new CustomerCart;
+
+    }
 }
