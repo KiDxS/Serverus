@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('customer_record', function (Blueprint $table) {
             $table->string('customer_name', 30)->primary();
             $table->string('store_name', 30);
-            $table->foreign('customer_name')->references('customer_name')->on('customer')->onUpdate('cascade');
+            $table->foreign('customer_name')->references('customer_name')->on('customer')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('store_name')->references('store_name')->on('store');
         });
     }
