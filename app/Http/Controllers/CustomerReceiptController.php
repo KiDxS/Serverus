@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 
 class CustomerReceiptController extends Controller
 {
-    public function create_customer_receipt(Request $request) {
+    public function create_customer_receipt(Request $request)
+    {
         $fields = $request->validate([
             'customer_name' => ['required'],
             'address' => ['required'],
@@ -32,7 +33,8 @@ class CustomerReceiptController extends Controller
 
         return redirect('/receipt')->with('message', 'Successfuly created a receipt!');
     }
-    public function edit_customer_information_in_receipt(Request $request) {
+    public function edit_customer_information_in_receipt(Request $request)
+    {
         $fields = $request->validate([
             'customer_name' => ['required'],
             'current_customer_name' => ['required'],
@@ -43,5 +45,13 @@ class CustomerReceiptController extends Controller
 
         // updates the information of a customer by taking the current_customer_name as a condition
         $customer->update_customer($fields['current_customer_name'], $fields['address'], $fields['phone_number'], $fields['customer_name']);
+    }
+
+    public function delete_customer_receipt(Request $request)
+    {
+        $receipt_id = $request->receipt_id;
+        $customer_receipt = new CustomerReceipt;
+        $customer_receipt->delete_customer_receipt($receipt_id);
+        return back()->with('message', 'Successfuly deleted a receipt!');
     }
 }
