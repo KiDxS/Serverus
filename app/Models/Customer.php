@@ -29,11 +29,11 @@ class Customer extends Model
         return $result[0];
     }
 
-    // updates the information of a customer by taking the current customer_name as a condition
-    public function update_customer($customer_name, $address, $phone_number, $new_customer_name)
+    // updates the information of a customer by taking the current_customer_name as a condition
+    public function update_customer($current_customer_name, $address, $phone_number, $customer_name)
     {
         $result = DB::update('UPDATE `customer` SET `customer_name` = ?, `address` = ?, `phone_number` = ? WHERE `customer_name` = ?;
-        ', [$new_customer_name, $address, $phone_number, $customer_name]);
+        ', [$customer_name, $address, $phone_number, $current_customer_name]);
         return $result;
     }
 }

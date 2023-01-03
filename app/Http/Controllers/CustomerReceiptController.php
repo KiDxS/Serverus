@@ -34,14 +34,14 @@ class CustomerReceiptController extends Controller
     }
     public function edit_customer_information_in_receipt(Request $request) {
         $fields = $request->validate([
-            'new_customer_name' => ['required'],
             'customer_name' => ['required'],
+            'current_customer_name' => ['required'],
             'address' => ['required'],
             'phone_number' => ['required'],
         ]);
         $customer = new Customer;
-        
-        // updates the information of a customer by taking the current customer_name as a condition
-        $customer->update_customer($fields['customer_name'], $fields['address'], $fields['phone_number'], $fields['new_customer_name']);
+
+        // updates the information of a customer by taking the current_customer_name as a condition
+        $customer->update_customer($fields['current_customer_name'], $fields['address'], $fields['phone_number'], $fields['customer_name']);
     }
 }
