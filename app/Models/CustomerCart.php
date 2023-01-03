@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class CustomerCart extends Model
@@ -15,6 +14,7 @@ class CustomerCart extends Model
     // Declares what table is the model
     public $table = 'customer_cart'; 
 
+    // inserts a new record in the customer_cart table
     public function insert_record($product_id, $quantity, $customer_name) {
         DB::insert('INSERT INTO `customer_cart`(`product_id`,`quantity`,`customer_name`) VALUES (?, ?, ?);', [$product_id, $quantity, $customer_name]);
     }
@@ -37,5 +37,4 @@ class CustomerCart extends Model
         $cart_id = DB::getPdo()->lastInsertId();
         return $cart_id;
     }
-
 }

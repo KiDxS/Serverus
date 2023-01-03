@@ -19,4 +19,11 @@ class CustomerTest extends TestCase
     //     $this->assertTrue($result);
     // }
 
+    // public function test_update_customer() {
+    //     $customer = new Customer;
+    //     $result = $customer->update_customer('Claudio Cormier', 'panabo city', '123456', 'Claudia Cormier');
+    //     $this->assertGreaterThan(0, $result);
+
+    // }
+
 }

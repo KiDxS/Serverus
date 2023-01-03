@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('cart_id');
             $table->double('total', 8, 2)->nullable();
             $table->date('created_at');
-            $table->foreign('cart_id')->references('cart_id')->on('customer_cart');
+            $table->foreign('cart_id')->references('cart_id')->on('customer_cart')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
