@@ -24,20 +24,17 @@ Route::get('/', function () {
 
 // Protected routes
 Route::middleware(['auth'])->group(function () {
-    Route::get('/product',[ProductController::class, 'all_products'])->name('product.page');
+    Route::prefix('product')->group(function () {
+        // /product
+        Route::get('/', [ProductController::class, 'all_products'])->name('product.page');
+        Route::post('/', [ProductController::class, 'add_product'])->name('add.product');
+        Route::put('/', [ProductController::class, 'update_product'])->name('edit.product');
+        // /product/id
+        Route::get('/{id}', [ProductController::class, 'retrieve_product'])->name('edit.product.page');
 
-    // Products
-    Route::get('/products/add', function() {
-        return view('product.add');
-    })->name('add.product.page');
-    Route::post('/products/add', [ProductController::class, 'add_product'])->name('add.product');
-    Route::get('/products/{id}', [ProductController::class, 'retrieve_product'])->name('edit.product.page');
-    Route::put('/products', [ProductController::class, 'update_product'])->name('edit.product');
-    // Route::delete('/products/delete', [ProductController::class, 'delete_product'])->name('delete.product');
+    });
+
 
     // Logout
     Route::get('/logout', [EmployeeController::class, 'logout'])->name('logout');
 });
-
-
-
