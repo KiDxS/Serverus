@@ -20,8 +20,16 @@ class CustomerCart extends Model
     }
 
     public function create_customer_cart($product_id, $quantity, $customer_name) {
+        $product = new Product;
+
+        // insert a new record in the customer_cart table
         $this->insert_record($product_id, $quantity, $customer_name);
+
+        // retrieves the last insert id
         $result = $this->retrieve_last_insert_id();
+        
+        // subtracts the quantity of the product in stock.
+        $product->reduce_quantity_because_it_was_sold($product_id, $quantity);
         return $result;
     }
 
