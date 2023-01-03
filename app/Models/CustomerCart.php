@@ -37,9 +37,4 @@ class CustomerCart extends Model
         $cart_id = DB::getPdo()->lastInsertId();
         return $cart_id;
     }
-
-    public function update_customer_name($customer_name) {
-
-    }
-
 }
