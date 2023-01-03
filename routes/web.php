@@ -30,10 +30,17 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/', [ProductController::class, 'add_product'])->name('add.product');
         Route::put('/', [ProductController::class, 'update_product'])->name('edit.product');
         // /product/id
-        Route::get('/{id}', [ProductController::class, 'retrieve_product'])->name('edit.product.page');
+        // Route::get('/{id}', [ProductController::class, 'retrieve_product'])->name('edit.product.page');
 
     });
 
+    Route::prefix('receipt')->group(function () {
+        Route::get('/');
+        Route::get('/{id}')->name('edit.receipt.page');
+        Route::post('/')->name('add.receipt');
+        Route::put('/{id}')->name('edit.receipt');
+        Route::delete('/')->name('delete.receipt');
+    });
 
     // Logout
     Route::get('/logout', [EmployeeController::class, 'logout'])->name('logout');
