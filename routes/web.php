@@ -31,19 +31,16 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [ProductController::class, 'all_products'])->name('product.page');
         Route::post('/', [ProductController::class, 'add_product'])->name('add.product');
         Route::put('/', [ProductController::class, 'update_product'])->name('edit.product');
-        // /product/id
-        // Route::get('/{id}', [ProductController::class, 'retrieve_product'])->name('edit.product.page');
-
     });
 
     Route::prefix('receipt')->group(function () {
-        Route::get('/', function() {
+        Route::get('/', function () {
             return view('receipt.add');
         });
         Route::get('/{id}')->name('edit.receipt.page');
         Route::post('/', [CustomerReceiptController::class, 'create_customer_receipt'])->name('add.receipt');
-        Route::put('/{id}')->name('edit.receipt');
-        Route::delete('/')->name('delete.receipt');
+        Route::put('/', [CustomerReceipt::class, 'edit_customer_information_in_receipt'])->name('edit.receipt');
+        Route::delete('/',[CustomerReceipt::class, 'delete_customer_receipt'])->name('delete.receipt');
     });
 
     // Logout
