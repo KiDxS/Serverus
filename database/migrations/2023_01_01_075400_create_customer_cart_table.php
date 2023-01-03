@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->string('customer_name', 30);
             $table->foreign('product_id')->references('product_id')->on('product');
-            $table->foreign('customer_name')->references('customer_name')->on('customer');
+            $table->foreign('customer_name')->references('customer_name')->on('customer')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
