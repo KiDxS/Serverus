@@ -80,7 +80,7 @@
                                     margin-left: 1px;
                                     width: 144.3px;
                                 ">
-                            <a class="btn btn-info fw-semibold text-center link-light text-bg-dark border rounded border-2 border-light" role="button" style="margin-right: 12px" href="view.html">View</a><button class="btn btn-secondary fw-semibold text-center link-dark text-bg-light border rounded border-light delete" type="button" data-bs-target="#modal-1" data-bs-toggle="modal" data-id="{{ $receipt->receipt_id }}">
+                            <a class="btn btn-info fw-semibold text-center link-light text-bg-dark border rounded border-2 border-light" role="button" style="margin-right: 12px" href="{{ route('edit.receipt.page', $receipt->receipt_id) }}">View</a><button class="btn btn-secondary fw-semibold text-center link-dark text-bg-light border rounded border-light delete" type="button" data-bs-target="#modal-1" data-bs-toggle="modal" data-id="{{ $receipt->receipt_id }}">
                                 Delete
                             </button>
                         </td>
