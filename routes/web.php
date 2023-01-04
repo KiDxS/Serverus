@@ -38,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
             return view('receipt.add');
         });
         Route::get('/', [CustomerReceiptController::class, 'render_data'])->name('receipt.page');
-        Route::get('/{id}')->name('edit.receipt.page');
+        Route::get('/{receipt_id}', [CustomerReceiptController::class, 'retrieve_customer_receipt'])->name('edit.receipt.page');
         Route::post('/', [CustomerReceiptController::class, 'create_customer_receipt'])->name('add.receipt');
         Route::put('/', [CustomerReceiptController::class, 'edit_customer_information_in_receipt'])->name('edit.receipt');
         Route::delete('/',[CustomerReceiptController::class, 'delete_customer_receipt'])->name('delete.receipt');
