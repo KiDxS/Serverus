@@ -52,6 +52,14 @@ class CustomerReceiptController extends Controller
 
         // updates the information of a customer by taking the current_customer_name as a condition
         $customer->update_customer($fields['current_customer_name'], $fields['address'], $fields['phone_number'], $fields['customer_name']);
+        return redirect('/receipt')->with('message', 'Successfuly edited a receipt!');
+    }
+
+    public function retrieve_customer_receipt($receipt_id) {
+        $customer_receipt = new CustomerReceipt;
+        $result = $customer_receipt->retrieve_customer_receipt($receipt_id);
+        return view('receipt.view', ['customer_receipt' => $result]);
+
     }
 
     public function delete_customer_receipt(Request $request)
