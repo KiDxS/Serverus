@@ -10,7 +10,7 @@
                 <li class="nav-item">
                     <a class="nav-link active border rounded border-1 border-white" href="{{ route('product.page') }}" style="color: white; font-size: 15px">Product</a>
                 </li>
-                <li class="nav-item" style="text-shadow: 7px 5px 4px #000000">
+                <!-- <li class="nav-item" style="text-shadow: 7px 5px 4px #000000">
                     <a class="nav-link border rounded border-1 border-white" href="report.html" style="
                                     text-shadow: 0px 0px 0px #343a40;
                                     color: white;
@@ -18,7 +18,7 @@
                                     padding: 8px;
                                     font-size: 15px;
                                 ">Report</a>
-                </li>
+                </li> -->
                 <li class="nav-item" style="text-shadow: 7px 5px 4px #000000">
                     <a class="nav-link border rounded border-1 border-white" href="{{ route('receipt.page') }}" style="
                                     text-shadow: 0px 0px 0px #343a40;
