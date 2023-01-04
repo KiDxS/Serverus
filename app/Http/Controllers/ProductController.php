@@ -10,8 +10,11 @@ class ProductController extends Controller
 {
     public function render_data()
     {
-        $data = Product::all();
-        return view('product.page', ['products' => $data]);
+        // $data = Product::all();
+        // return view('product.page', ['products' => $data]);
+        $product = new Product;
+        $products = $product->retrieve_all_products();
+        return view('product.page', ['products' => $products]);
     }
 
     public function add_product(Request $request)

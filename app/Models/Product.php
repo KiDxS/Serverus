@@ -15,6 +15,10 @@ class Product extends Model
     // Declares what table is the model
     public $table = 'product';
 
+    public function retrieve_all_products() {
+        $result = DB::select("select * from product");
+        return $result;
+    }
     // the add method allows you to insert a new product in the table "product"
     public function add($product_name, $quantity, $cost_price, $sale_price)
     {
