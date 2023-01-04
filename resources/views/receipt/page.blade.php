@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-    <title>(Org) F.I - Auto Supply</title>
+    <title>F.I - Auto Supply</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/ABeeZee.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/Abhaya%20Libre.css') }}" />
