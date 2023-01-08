@@ -17,7 +17,7 @@ class ProductController extends Controller
         return view('product.page', ['products' => $products]);
     }
 
-    public function add_product(Request $request)
+    public function create_product(Request $request)
     {
         // Validate
         $fields = $request->validate([
@@ -34,7 +34,7 @@ class ProductController extends Controller
     }
 
     //
-    public function update_product(Request $request)
+    public function edit_product(Request $request)
     {
         $fields = $request->validate([
             'product_id' => ['required'],

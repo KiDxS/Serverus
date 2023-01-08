@@ -32,8 +32,8 @@ Route::middleware(['auth'])->group(function () {
 
         // /Product routes
         Route::get('/', [ProductController::class, 'render_data'])->name('product.page');
-        Route::post('/', [ProductController::class, 'add_product'])->name('add.product');
-        Route::put('/', [ProductController::class, 'update_product'])->name('edit.product');
+        Route::post('/', [ProductController::class, 'create_product'])->name('add.product');
+        Route::put('/', [ProductController::class, 'edit_product'])->name('edit.product');
     });
 
     Route::prefix('receipt')->group(function () {
