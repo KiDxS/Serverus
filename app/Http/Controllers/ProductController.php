@@ -45,17 +45,8 @@ class ProductController extends Controller
         ]);
         $product_id = $fields['product_id'];
         $product = new Product();
-        $product->edit($product_id, $fields['product_name'], $fields['quantity'], $fields['cost_price'], $fields['sale_price']);
+        $product->edit_product($product_id, $fields['product_name'], $fields['quantity'], $fields['cost_price'], $fields['sale_price']);
         // Redirects user to the previous page
         return redirect('/product')->with('message', 'Successfuly edited a product!');
     }
-
-    // public function delete_product(Request $request)
-    // {
-    //     $product_id = $request->product_id;
-
-    //     $product = new Product();
-    //     $product->delete_product($product_id);
-    //     return back()->with('message', 'Successfuly deleted a product!');
-    // }
 }
