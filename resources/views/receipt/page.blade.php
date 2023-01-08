@@ -6,16 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     <title>F.I - Auto Supply</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/ABeeZee.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/Abhaya%20Libre.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/Aboreto.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/Belleza.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/Cutive%20Mono.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/JetBrains%20Mono.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/Montserrat.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/Roboto.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/beautiful-danger-alert.css') }}" />
-    <link rel="stylesheet" href=" {{ asset('css/Login-Form-Basic-icons.css') }}" />
     <link rel="stylesheet" href="{{ asset('fonts/fontawesome-all.min.css')}}" />
 </head>
 
