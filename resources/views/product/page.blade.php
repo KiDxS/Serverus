@@ -7,7 +7,6 @@
     <title>F.I - Auto Supply</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/beautiful-danger-alert.css') }}" />
-    <link rel="stylesheet" href=" {{ asset('css/Login-Form-Basic-icons.css') }}" />
     <link rel="stylesheet" href="{{ asset('fonts/fontawesome-all.min.css')}}" />
 </head>
 

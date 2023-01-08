@@ -6,16 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     <title>F.I - Auto Supply</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/ABeeZee.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/Abhaya%20Libre.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/Aboreto.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/Belleza.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/Cutive%20Mono.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/JetBrains%20Mono.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/Montserrat.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/Roboto.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/beautiful-danger-alert.css') }}" />
-    <link rel="stylesheet" href=" {{ asset('css/Login-Form-Basic-icons.css') }}" />
     <link rel="stylesheet" href="{{ asset('fonts/fontawesome-all.min.css')}}" />
 </head>
 
@@ -83,15 +73,15 @@
                         " disabled="" value="{{ $customer_receipt->phone_number }}" /></label>
                 </div>
                 <div class="col">
-                <label class="form-label" style="
+                    <label class="form-label" style="
                         padding: 20px;
                         padding-top: 3px;
                         background: #343a40;
                         font-style: italic;
                         color: white;
                     ">Product:<br /><select class="form-select" disabled="" style=" height: 35px; color: gray" name="product_id">
-                    <option value="{{ $customer_receipt->product_id }}" selected="">{{ $customer_receipt->product_name }}</option>
-                </select></label><label class="form-label" style="
+                            <option value="{{ $customer_receipt->product_id }}" selected="">{{ $customer_receipt->product_name }}</option>
+                        </select></label><label class="form-label" style="
                         padding: 20px;
                         padding-top: 3px;
                         background: #343a40;
@@ -105,7 +95,7 @@
                         " disabled="" value="{{ $customer_receipt->quantity }}" /></label>
                 </div>
             </div>
-            
+
             <div class="row d-lg-flex">
                 <div class="col d-lg-flex flex-row justify-content-end">
                     <button class="btn btn-primary fw-semibold link-light text-bg-dark border rounded border-2 border-white" type="button" style="margin-right: 10px" onclick="editBtnClicked()">
