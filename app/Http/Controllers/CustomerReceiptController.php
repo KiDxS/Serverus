@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Utils\RenderPage;
 use App\Models\Customer;
 use App\Models\CustomerCart;
 use App\Models\CustomerReceipt;
@@ -10,12 +11,15 @@ use Illuminate\Http\Request;
 
 class CustomerReceiptController extends Controller
 {
-    public function render_data() {
+    // renders the receipt table
+    public function render_data()
+    {
         $customer_receipt = new CustomerReceipt;
         $products = Product::all(['product_id', 'product_name']);
         $receipts = $customer_receipt->retrieve_all_customer_receipts();
         return view('receipt.page', ['receipts' => $receipts, 'products' => $products]);
     }
+
     public function create_customer_receipt(Request $request)
     {
         $fields = $request->validate([
@@ -55,11 +59,11 @@ class CustomerReceiptController extends Controller
         return redirect('/receipt')->with('message', 'Successfuly edited a receipt!');
     }
 
-    public function retrieve_customer_receipt($receipt_id) {
+    public function retrieve_customer_receipt($receipt_id)
+    {
         $customer_receipt = new CustomerReceipt;
         $result = $customer_receipt->retrieve_customer_receipt($receipt_id);
         return view('receipt.view', ['customer_receipt' => $result]);
-
     }
 
     public function delete_customer_receipt(Request $request)
