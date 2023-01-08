@@ -28,7 +28,7 @@ class Product extends Model
     }
 
     //  the edit method allows you to edit a product
-    public function edit($product_id, $product_name, $quantity, $cost_price, $sale_price)
+    public function edit_product($product_id, $product_name, $quantity, $cost_price, $sale_price)
     {
         DB::update('UPDATE product SET `product_name` = ?,`quantity` = ?, `cost_price` = ?, `sale_price` = ? WHERE `product_id` = ?;', [$product_name, $quantity, $cost_price, $sale_price, $product_id]);
     }
