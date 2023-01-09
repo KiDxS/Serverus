@@ -6,7 +6,7 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
         />
-        <title>F.I - Auto Supply</title>
+        <title>{{ env('STORE_NAME') }}</title>
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
         <link
             rel="stylesheet"
