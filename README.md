@@ -20,13 +20,18 @@ Serverus is a Retail Management System with a web-based user interface and relat
 1. Go to the directory of the designated project with the command-line.
 2. Install the dependencies of the project ”composer install”.
 3. Copy ".env.example" as ".env"
-4. Change the following settings in the “.env” file.
+4. Change the following variables in the “.env” file.
 
     a. DB_USERNAME - your username in your MySQL instance
 
     b. DB_PASSWORD - your password in your MySQL instance
 
     c. DB_DATABASE - the name of your database
+
+    d. STORE_NAME - the name of your store
+
+    e. INVENTORY_NAME - the name of your inventory
+
 5. Turn on your mysql instance.
 6. Run “php artisan migrate --seed”.
 7. Generate an app key ”php artisan key:generate”
