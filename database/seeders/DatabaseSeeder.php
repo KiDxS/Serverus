@@ -17,13 +17,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Store::factory()->create();
-        \App\Models\Inventory::factory()->create();
-        \App\Models\Employee::factory()->create([
-            'username' => 'admin'
-        ]);
-        \App\Models\Employee::factory(2)->create();
-        \App\Models\Product::factory(4)->create();
-
+        $store_name = env('STORE_NAME', 'Serverus');
+        $inventory_name = env('INVENTORY_NAME', 'Serverus Inventory');
+        \App\Models\Store::factory()->create(
+            [
+                'store_name' => $store_name
+            ]
+        );
+        \App\Models\Inventory::factory()->create(
+            [
+                'store_name' => $store_name,
+                'inventory_name' => $inventory_name
+            ]
+        );
+        \App\Models\Employee::factory()->create(
+            [
+                'username' => 'admin',
+                'store_name' => $store_name
+            ]
+        );
+        \App\Models\Product::factory(4)->create(
+            [
+                'inventory_name' => $inventory_name
+            ]
+        );
     }
 }
