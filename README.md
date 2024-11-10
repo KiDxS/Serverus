@@ -11,7 +11,7 @@
 Serverus is a Retail Management System with a web-based user interface and relational database. It is used to process goods throughout the entire supply chain, from purchasing and production to end sales. 
 
 
-## 🚀 Getting Started
+## Getting Started
 **Things that are needed:**
 - PHP 8.0 and above
 - Composer
